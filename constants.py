@@ -1,0 +1,1 @@
+COINMARKETCAP = "https://coinmarketcap.com/"
