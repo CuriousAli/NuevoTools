@@ -59,6 +59,14 @@ class BasePage:
             else:
                 self._browser.execute_script('window.scrollTo(0, document.body.scrollHeight);')
 
+    def scroll_down_page_slowly(self, speed=1300):
+        with allure.step(f'Scrolling slowly page down '):
+            current_scroll_position, new_height = 0, 1
+            while current_scroll_position <= new_height:
+                current_scroll_position += speed
+                self._browser.execute_script(f"window.scrollTo(0, {current_scroll_position});")
+                new_height = self._browser.execute_script("return document.body.scrollHeight")
+
     def scroll_up(self, offset=0):
         """ Scroll the page up. """
         with allure.step(f'Scrolling page up with offset = {offset}'):
