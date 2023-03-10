@@ -211,6 +211,7 @@ class WebElement:
             except Exception as e:
                 pass  # Just ignore the error if we can't send the keys to the element
 
+
     def delete(self):
         """ Deletes element from the page. """
         with allure.step(f'Deleting element from the page'):
@@ -267,7 +268,7 @@ class ManyWebElements(WebElement):
 
                 try:
                     if "$" in str(element.text):
-                        text = int(str(element.text).replace("$", ''))
+                        text = float(str(element.text).replace("$", '').replace(',',''))
                     else:
                         text = str(element.text)
                 except Exception as e:
