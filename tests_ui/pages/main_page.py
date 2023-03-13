@@ -25,3 +25,6 @@ class MainPageTable(BasePage):
     table_column_of_price = WebElement(xpath="//table/thead/tr/th[4]/div/div")
     table_coin_prices = ManyWebElements(xpath="//table/tbody/tr/td[4]/div/a/span")
 
+    table_column_of_week = WebElement(xpath="//table/thead/tr/th[7]/div/div/div")
+    table_coin_week_growth_caret_up = ManyWebElements(xpath="//table/tbody/tr/td[7]/span/span[@class='icon-Caret-up']/..")
+    table_coin_week_growth_caret_down = ManyWebElements(xpath="//table/tbody/tr/td[7]/span/span[@class='icon-Caret-down']/..")
