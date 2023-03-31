@@ -1,6 +1,10 @@
 import pytest
 
+
+from tests_ui.pages.coin_page import
+
 from tests_ui.pages.coin_page import CoinPage
+
 
 
 def test_open_weekly_chart_data(browser):
