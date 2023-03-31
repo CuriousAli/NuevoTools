@@ -1,5 +1,3 @@
-import time
-
 import pytest
 
 from tests_ui.pages.main_page import MainPageTable
@@ -105,8 +103,3 @@ def test_weekly_percentage_asc_sort(browser):
     else:
         assert 1 == 0, f"Rows less then expected test failed{len(weekly_list)}"
 
-def test_get_the_most_detrimental_coin_of_week(browser):
-    pass
-
-def test_get_the_most_profitable_coin_of_week(browser):
-    pass

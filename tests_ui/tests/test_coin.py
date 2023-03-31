@@ -1,3 +1,8 @@
+import pytest
+
+from tests_ui.pages.coin_page import
+
+
 def test_open_weekly_chart_data(browser):
     pass
 
