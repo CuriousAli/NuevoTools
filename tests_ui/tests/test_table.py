@@ -12,7 +12,7 @@ def test_price_desc_sort(browser):
 
     page.table_column_of_price.click()
 
-    price_list = page.table_coin_prices.get_text()
+    price_list = page.table_coin_prices.get_text_custom()
 
     if len(price_list) == 100:
         sorted_price_list = sorted(price_list, reverse=True)
@@ -31,7 +31,7 @@ def test_price_asc_sort(browser):
     page.table_column_of_price.click()
     page.table_column_of_price.click()
 
-    price_list = page.table_coin_prices.get_text()
+    price_list = page.table_coin_prices.get_text_custom()
 
     if len(price_list) == 100:
         sorted_price_list = sorted(price_list, reverse=False)
@@ -58,7 +58,7 @@ def test_get_price_of_coin_by_name(browser, coin_name="Tezos"):
     page = MainPageTable(browser)
     page.scroll_down_page_slowly()
 
-    coin_dict = dict(zip(page.table_coin_names.get_text(), page.table_coin_prices.get_text()))
+    coin_dict = dict(zip(page.table_coin_names.get_text(), page.table_coin_prices.get_text_custom()))
 
     if len(coin_dict) == 100:
         coin_price = coin_dict[coin_name]

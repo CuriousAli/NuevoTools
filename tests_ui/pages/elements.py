@@ -259,6 +259,24 @@ class ManyWebElements(WebElement):
 
     def get_text(self):
         """ Get text of elements. """
+
+        elements = self.find()
+        result = []
+
+        for element in elements:
+            text = ''
+
+            try:
+                text = str(element.text)
+            except Exception as e:
+                print('Error: {0}'.format(e))
+
+            result.append(text)
+
+        return result
+
+    def get_text_custom(self):
+        """ Get text of elements with custom text handler """
         with allure.step(f'Getting list of text from elements'):
             elements = self.find()
             result = []
@@ -277,6 +295,8 @@ class ManyWebElements(WebElement):
                 result.append(text)
 
             return result
+
+
 
     def get_attribute(self, attr_name):
         """ Get attribute of all elements. """

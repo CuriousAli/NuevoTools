@@ -1,6 +1,10 @@
 import pytest
 
+
 from tests_ui.pages.coin_page import
+
+from tests_ui.pages.coin_page import CoinPage
+
 
 
 def test_open_weekly_chart_data(browser):
@@ -12,8 +16,11 @@ def test_open_monthly_chart_data(browser):
 def test_open_last_three_month_chart_data(browser):
     pass
 
-def test_open_full_screen_chart_data_mode(browser):
-    pass
+@pytest.mark.run
+def test_open_fullscreen_chart_data_mode(browser, name='bitcoin'):
+    page = CoinPage(browser, name=name)
+    page.fullscreen_button.click()
+    assert page.fullscreen_marker.is_presented(), f"Fullscreen of chart data didn't open"
 
 def test_open_markets_subsection(browser):
     pass
