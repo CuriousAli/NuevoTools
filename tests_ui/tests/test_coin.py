@@ -1,8 +1,5 @@
 import pytest
 
-
-from tests_ui.pages.coin_page import
-
 from tests_ui.pages.coin_page import CoinPage
 
 
