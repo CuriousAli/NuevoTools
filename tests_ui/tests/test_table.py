@@ -1,5 +1,3 @@
-import time
-
 import pytest
 
 from tests_ui.pages.main_page import MainPageTable
@@ -13,7 +11,7 @@ def test_price_desc_sort(browser):
 
     page.table_column_of_price.click()
 
-    price_list = page.table_coin_prices.get_text()
+    price_list = page.table_coin_prices.get_text_custom()
 
     if len(price_list) == 100:
         sorted_price_list = sorted(price_list, reverse=True)
@@ -31,7 +29,7 @@ def test_price_asc_sort(browser):
     page.table_column_of_price.click()
     page.table_column_of_price.click()
 
-    price_list = page.table_coin_prices.get_text()
+    price_list = page.table_coin_prices.get_text_custom()
 
     if len(price_list) == 100:
         sorted_price_list = sorted(price_list, reverse=False)
@@ -39,8 +37,7 @@ def test_price_asc_sort(browser):
     else:
         assert 1 == 0, f"Rows less then expected test failed{len(price_list)}"
 
-@pytest.mark.run
-
+@pytest.mark.run1
 def test_get_coin_by_rank(browser, coin_rank="1", expected_name="Bitcoin"):
     page = MainPageTable(browser)
     page.scroll_down_page_slowly()
@@ -58,7 +55,7 @@ def test_get_price_of_coin_by_name(browser, coin_name="Tezos"):
     page = MainPageTable(browser)
     page.scroll_down_page_slowly()
 
-    coin_dict = dict(zip(page.table_coin_names.get_text(), page.table_coin_prices.get_text()))
+    coin_dict = dict(zip(page.table_coin_names.get_text(), page.table_coin_prices.get_text_custom()))
 
     if len(coin_dict) == 100:
         coin_price = coin_dict[coin_name]
